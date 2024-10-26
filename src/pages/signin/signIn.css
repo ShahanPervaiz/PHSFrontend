@@ -1,0 +1,86 @@
+.container{
+    width: 450px;
+    background-color:#d3d7e6;
+    border-radius: 20px;
+    margin-top: 140px;
+}
+.form-error{
+    color:red
+  }
+.heading{
+    color: #1e328f;
+    font-weight: bold;
+    font-size: 22px;
+}
+.cardColor{
+    background-color:#d3d7e6;
+}
+
+.btnColor {
+    background-color: #1e328f;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none; /* Optional to remove default border */
+}
+
+.btnColor:active, .btnColor:focus {
+    background-color: #1e328f;
+    color: white;
+    outline: none; /* Remove the default focus outline */
+}
+
+.btnColor:hover {
+    background-color: #16276b; /* Darken on hover for a nice effect */
+}
+
+.container{
+    width: 400px;
+    background-color:#d3d7e6;
+    border-radius: 20px;
+    margin-top: 140px;
+}
+.heading{
+    color: #1e328f;
+    font-weight: bold;
+    font-size: 22px;
+}
+.cardColor{
+    background-color:#d3d7e6;
+}
+
+/* Style for the textbox with an icon */
+.textbox-with-icon {
+    padding-left: 2.5rem; /* Space for the icon */
+    padding-right: 12px; /* Normal right padding */
+    padding-top: 12px;
+    padding-bottom: 12px;
+    box-shadow: none;
+    border: 1px solid #ced4da; /* Default border */
+    outline: none;
+    font-size: 1rem;
+}
+
+/* Position the icon inside the textbox */
+.iconInsideTextbox {
+    position: absolute;
+    left: 0.75rem; /* Position the icon inside the textbox */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #343a40; /* Dark color for the icon */
+    pointer-events: none; /* Prevent interaction with the icon */
+    font-size: 1.25rem; /* Adjust the icon size */
+}
+
+/* When input is focused, change the border and icon color */
+.textbox-with-icon:focus {
+    border-color: blue; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Optional box shadow */
+}
+
+
+
+
+
+
+

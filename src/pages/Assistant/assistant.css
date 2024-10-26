@@ -1,0 +1,31 @@
+.custom-accordion .accordion-button {
+    border: none; /* Remove default border */
+    outline: none; /* Remove default focus outline */
+    box-shadow: none; /* Remove default box-shadow */
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    border: 1px solid #343a40; /* Darker border for open state */
+    background-color: #f8f9fa; /* Optional: lighter background color */
+}
+
+.custom-accordion .accordion-button::after {
+    filter: brightness(0.6); /* Darken the default icon color */
+}
+
+.custom-accordion .accordion-body {
+    border: 1px solid #343a40; /* Darker border for the accordion body */
+    border-top: none; /* Avoid double border with the header */
+}
+
+.btncolor {
+    background-color: rgb(30, 50, 143);
+    border-color: rgb(30, 50, 143); /* Optional, to match the border */
+}
+
+.btncolor:hover {
+    background-color: rgb(20, 40, 120); /* Choose a slightly darker shade for hover */
+    border-color: rgb(20, 40, 120); /* Optional, to match the border */
+}
+
+

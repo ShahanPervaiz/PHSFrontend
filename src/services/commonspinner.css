@@ -1,0 +1,25 @@
+.container {
+    position: relative;
+  } 
+  .blurred {
+    filter: blur(5px); /* Adjust the blur effect as needed */
+  }
+  
+  .spinner-overlay {
+    position: fixed; /* Full-screen overlay */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex; /* Center the spinner */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: rgba(255, 255, 255, 0); /* Fully transparent background */
+    backdrop-filter: blur(1px); /* Apply a blur effect to the background */
+    z-index: 1000; /* Ensure the spinner is above other content */
+  }
+  
+  /* Optional: Add this to enhance the form fields */
+  
+  
+  
