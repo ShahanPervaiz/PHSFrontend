@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Footer, Navbar, Sidebar, ThemeSettings } from "./components";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
@@ -8,39 +8,28 @@ import { useStateContext } from "./contexts/ContextProvider";
 import Dashboard from "./pages/DashBoard/dashboard";
 import Assistant from "./pages/Assistant/assistant";
 import Signin from "./pages/signin/signin";
+import ProtectedRoute from './services/Protected'
 import './App.css';
 
 export const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const {activeMenu} = useStateContext();
+  const { activeMenu } = useStateContext();
   const [loading, setLoading] = useState(true);
 
- 
-
-  // Check authentication status on initial load
-  useEffect(() => {
-    console.log("App.jssss")
-    const token = localStorage.getItem('token');
-    if (token != null) {
-      setIsAuthenticated(true);
-      console.log("AcessGranted")
-    }
-  }, []);
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Signin />} />
-        <Route path="assistant" element={<Layout activeMenu={activeMenu}><Assistant /></Layout>} />
+        <Route path="assistant"element={<ProtectedRoute><Layout activeMenu="assistant"><Assistant /></Layout></ProtectedRoute> }/>
         <Route path="dashboard" element={<Layout activeMenu={activeMenu}><Dashboard /></Layout>} />
 
-        {/* <Route path="/assistant" element={isAuthenticated ? <Layout activeMenu={activeMenu}><Assistant /></Layout> : <Navigate to="/" />} />
-        <Route path="/dashboard" element={isAuthenticated ? <Layout activeMenu={activeMenu}><Dashboard /></Layout> : <Navigate to="/" />} /> */}
       </Routes>
     </BrowserRouter>
   );
 
 };
+
+
 
 const Layout = ({ children, activeMenu }) => {
   return (
