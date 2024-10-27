@@ -172,10 +172,7 @@ const Assistant = () => {
                     </div>
                 </form>
             </div>
-            <div>
-
-            </div>
-
+            
             {dictations.length > 0 && (
                 <div className="mt-3">
                     {dictations.map((dictation, index) => (
