@@ -32,7 +32,7 @@ const Assistant = () => {
 
         fetchProviders();
     }, []);
-//--------------------------on Search Button---------------------//
+    //--------------------------on Search Button---------------------//
     const handleSearch = async (e) => {
         if (e) {
             e.preventDefault();
@@ -49,16 +49,16 @@ const Assistant = () => {
             const result = response.data;
             console.log("dictations", result);
             setDictations("");
-            if (result.status) {      
-                debugger          
-                if(result.dictations.length > 0){
+            if (result.status) {
+                debugger
+                if (result.dictations.length > 0) {
                     showToast('success', '', result.message);
                     const formattedDictations = result.dictations.map((dictation) => ({
                         ...dictation,
                         soap_note: dictation.soap_note ? formatText(dictation.soap_note) : dictation.soap_note
                     }));
                     setDictations(formattedDictations || []);
-                }else{
+                } else {
                     showToast('error', '', "No Record Found");
 
                 }
@@ -74,24 +74,24 @@ const Assistant = () => {
     const markAsDone = async (id) => {
         debugger
         try {
-          setLoading(true);
-          const payload = {
-            dictation_id: id,
-          };
-          const response = await postRequest("assistant_api/update-dictation-status", payload);
-          const result = response.data;
-          if (result.status) {
-            showToast('success', '', result.message);
-            handleSearch();
-          }
-        
+            setLoading(true);
+            const payload = {
+                dictation_id: id,
+            };
+            const response = await postRequest("assistant_api/update-dictation-status", payload);
+            const result = response.data;
+            if (result.status) {
+                showToast('success', '', result.message);
+                handleSearch();
+            }
+
         } catch (error) {
         } finally {
-          setLoading(false);
+            setLoading(false);
         }
-      };
+    };
 
-      
+
     return (
         <div className="mt-3 p-2 md:p-10 bg-gray-200">
             <div className="card">
@@ -172,6 +172,10 @@ const Assistant = () => {
                     </div>
                 </form>
             </div>
+            <div>
+
+            </div>
+
             {dictations.length > 0 && (
                 <div className="mt-3">
                     {dictations.map((dictation, index) => (
@@ -185,7 +189,7 @@ const Assistant = () => {
                                     </div>
                                     <div className="col-md-4 text-end">
                                         {dictation.status === "pending" && (
-                                            <button className="btn btn-success d-inline-flex align-items-center"  onClick={() => markAsDone(dictation.id)}>
+                                            <button className="btn btn-success d-inline-flex align-items-center" onClick={() => markAsDone(dictation.id)}>
                                                 <FaCheck className="me-2" />
                                                 <span>Mark As Done</span>
                                             </button>
